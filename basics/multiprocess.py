@@ -5,7 +5,7 @@ import time
 def task(name):
     print(f'starting {name}')
     time.sleep(2)
-    print(f'finished {name} awdawd')
+    print(f'finished {name}')
 
 
 if __name__=="__main__":
