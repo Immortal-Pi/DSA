@@ -1,3 +1,4 @@
+from collections import deque
 class BinaryTree:
     def __init__(self,val):
         self.val=val
@@ -26,16 +27,36 @@ def print_tree(root):
 
     print(root.val,end=':')
     if root.left!=None:
-        print(root.left.val,end=',')
+        print(f'L->{root.left.val}',end=',')
     else:
         print(f'None',end=',')
     if root.right!=None:
-        print(root.right.val,end=',')
+        print(f'R->{root.right.val}',end=',')
     else:
         print(f'None',end=',')
     print('\n')
     print_tree(root.left)
     print_tree(root.right)
+
+def print_tree_BT(root):
+    if root==None:
+        return root
+    queue=deque([root])
+    while queue:
+        top=queue.popleft()
+        print(f'{top.val}',end=':')
+        if top.left:
+            print(f'L->{top.left.val}',end=',')
+            queue.append(top.left)
+        else:
+            print(f'L-> None',end=',')
+        if top.right:
+            print(f'R->{top.right.val}',end=',')
+            queue.append(top.right)
+        else:
+            print(f'R-> None',end=',')
+        print('\n')
+    
 
 tree1_struture=(1,[
     (2,[
